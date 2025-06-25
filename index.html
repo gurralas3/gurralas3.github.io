@@ -2,142 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sai Teja Gurrala - Professional Profile</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Teja Gurrala | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .clock-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-      
+    body {
+      font-family: 'Segoe UI', sans-serif;
     }
-    .joke-box, .cookie-msg, .email-toggle {
-      margin: 15px 0;
+    .sidebar {
+      background-color: #e91e63;
+      color: white;
+      min-height: 100vh;
+    }
+    .sidebar a {
+      color: white;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #d81b60;
+    }
+    .headshot {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: block;
+    }
+    .main {
+      padding: 40px;
+    }
+    .highlight {
+      color: #e91e63;
+    }
+    .quote {
+      font-style: italic;
+      border-left: 5px solid #4caf50;
+      padding-left: 15px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="jumbotron text-center">
-    <h1>Sai Teja Gurrala</h1>
-    <img src="gurralas3.github.io/headshot.jpg" alt="My headshot" width="150">
-    <p>Email: <span id="emailToggle" onclick="showhideEmail()">Show my email</span></p>
-    <p><a href="resume.pdf" target="_blank">View Resume</a></p>
-    <p><a href="waph.html">WAPH Course Overview</a></p>
-    <div class="cookie-msg" id="cookieMessage"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar text-center">
+        <img src="Images/headshot.jpg" alt="Headshot" class="headshot">
+        <h4>SAI TEJA<br><span class="highlight">GURRALA</span></h4>
+        <p>Dayton, OH | (937) 555-1234</p>
+        <a href="#" onclick="showhideEmail()" id="emailToggle">SHOW MY EMAIL</a>
+        <script>
+          var shown = false;
+          function showhideEmail(){
+            if (shown){
+              document.getElementById('emailToggle').innerHTML="SHOW MY EMAIL";
+              shown = false;
+            } else {
+              var myemail = "<a href='mailto:gurralas3@udayton.edu' style='color:white;'>gurralas3@udayton.edu</a>";
+              document.getElementById('emailToggle').innerHTML=myemail;
+              shown = true;
+            }
+          }
+        </script>
+        <hr>
+        <a href="#">ABOUT</a>
+        <a href="#">EXPERIENCE</a>
+        <a href="#">EDUCATION</a>
+        <a href="#">SKILLS</a>
+        <a href="#">PROJECTS</a>
+        <a href="#">CERTIFICATIONS</a>
+        <a href="#">ADDITIONAL TASKS</a>
+      </div>
+      <div class="col-md-9 main">
+        <h2>WELCOME TO MY PROFESSIONAL PORTFOLIO!</h2>
+        <p>Hello there! I am Sai Teja Gurrala, a passionate and motivated Computer Science graduate student with hands-on experience in web development, artificial intelligence, and cybersecurity. With strong knowledge in HTML, JavaScript, and Python, and a commitment to continuous learning, I aim to contribute effectively to innovative software solutions and secure web technologies.</p>
+
+        <div class="quote">
+          <strong>QUOTE OF THE DAY</strong><br>
+          "Maybe we shouldn't be looking for love. Maybe we should be looking for a person. Because maybe you can find love in a person, but not have that person. So if you look for love, what you will find is love. But if you want to belong to someone, and you want someone to belong to you, you should look for a person." – C. JoyBell C.
+        </div>
+
+        <hr>
+        <p>Click to view my <a href="waph.html">WAPH Course Projects</a></p>
+
+        <hr>
+        <p>Page Tracker:</p>
+        <a href="https://flagcounter.com/" target="_blank">
+          <img src="https://s11.flagcounter.com/count2/B0y/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_6/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Flag Counter" border="0">
+        </a>
+      </div>
+    </div>
   </div>
-
-  <div class="clock-box">
-    <h4>Digital Clock</h4>
-    <div id="digit-clock"></div>
-    <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
-  </div>
-
-  <hr>
-  <div class="joke-box">
-    <h4>Random Programming Joke</h4>
-    <div id="joke"></div>
-  </div>
-
-  <div class="graphic-box">
-    <h4>Random XKCD Comic</h4>
-    <img id="xkcdImg" src="" alt="XKCD Comic" class="img-fluid">
-  </div>
-
-  <hr>
-  <div class="form-group">
-    <label>Predict Age by Name:</label>
-    <input type="text" class="form-control" id="nameInput">
-    <button class="btn btn-primary mt-2" onclick="getAge()">Predict Age</button>
-    <div id="ageResult" class="mt-2"></div>
-  </div>
-
-  <div class="text-center mt-5">
-    <a href="https://info.flagcounter.com" target="_blank">
-      <img src="https://s11.flagcounter.com/count2/XXXX/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_3/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
-    </a>
-  </div>
-</div>
-
-<script src="https://waph-phung.github.io/clock.js"></script>
-<script>
-  // Digital clock
-  function displayTime() {
-    document.getElementById('digit-clock').innerHTML = new Date();
-  }
-  setInterval(displayTime, 1000);
-
-  // Analog clock
-  var canvas = document.getElementById("analog-clock");
-  var ctx = canvas.getContext("2d");
-  var radius = canvas.height / 2;
-  ctx.translate(radius, radius);
-  radius *= 0.90;
-  setInterval(() => {
-    drawFace(ctx, radius);
-    drawNumbers(ctx, radius);
-    drawTime(ctx, radius);
-  }, 1000);
-
-  // Cookie greeting
-  const lastVisit = getCookie("visit");
-  if (!lastVisit) {
-    document.getElementById("cookieMessage").innerText = "Welcome to my homepage for the first time!";
-  } else {
-    document.getElementById("cookieMessage").innerText = `Welcome back! Your last visit was ${lastVisit}`;
-  }
-  document.cookie = `visit=${new Date().toLocaleString()}`;
-
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-
-  // Email toggle
-  var shown = false;
-  function showhideEmail() {
-    const emailSpan = document.getElementById("emailToggle");
-    if (shown) {
-      emailSpan.innerText = "Show my email";
-      shown = false;
-    } else {
-      emailSpan.innerHTML = "<a href='mailto:gurralas3@udayton.edu'>gurralas3@udayton.edu</a>";
-      shown = true;
-    }
-  }
-
-  // Joke API fetch every minute
-  function fetchJoke() {
-    $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (response) {
-      if (response && response.joke) {
-        $("#joke").text(response.joke);
-      }
-    });
-  }
-  fetchJoke();
-  setInterval(fetchJoke, 60000);
-
-  // XKCD comic
-  fetch("https://xkcd.com/info.0.json")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("xkcdImg").src = data.img;
-    });
-
-  // Age prediction
-  function getAge() {
-    const name = document.getElementById("nameInput").value;
-    fetch(`https://api.agify.io/?name=${name}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("ageResult").innerText = `Predicted Age: ${data.age}`;
-      });
-  }
-</script>
 </body>
 </html>
