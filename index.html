@@ -778,11 +778,11 @@
     });
 
     // Digital Clock
-    function displayTime() {
-        document.getElementById('digital-clock').innerHTML = "Current time: " + new Date();
-        drawAnalogClock(); // keep analog clock working
+    function updateDigitalClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('digital-clock').textContent = timeString +  new Date();;
     }
-    setInterval(displayTime, 500); // updates every 500ms
 
     // Analog Clock
     function drawAnalogClock() {
