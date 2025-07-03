@@ -469,7 +469,8 @@
                     </div>
                     <div class="info-item">
                       <span class="info-label">Email:</span>
-                      <span id="email" style="user-select: none;">gurralas3@udayton.edu</span>
+                      <span id="email">Show my email</span>
+                      <button class="btn btn-sm btn-outline-primary ms-2" onclick="showhideEmail()">Toggle</button>
                     </div>
                     <div class="info-item">
                       <span class="info-label">Phone:</span>
@@ -1017,5 +1018,19 @@
     }
     document.addEventListener("DOMContentLoaded", showWelcomeBanner);
   </script>
+  <script src="js/scripts.js"></script>
+<script type="text/javascript">
+    var shown = false;
+    function showhideEmail() {
+        if (shown) {
+            document.getElementById('email').innerHTML = "Show my email";
+            shown = false;
+        } else {
+            var myemail = "<a href='mailto:gurralas3@udayton.edu'>gurralas3@udayton.edu</a>";
+            document.getElementById('email').innerHTML = myemail;
+            shown = true;
+        }
+    }
+</script>
 </body>
 </html>
